@@ -41,7 +41,8 @@ class ServicesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Service->create();
 			if ($this->Service->save($this->request->data)) {
-				$this->flash(__('Service saved.'), array('action' => 'index'));
+				$this->Session->setFlash(__('The service has been saved'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		}
@@ -64,7 +65,8 @@ class ServicesController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Service->save($this->request->data)) {
-				$this->flash(__('The service has been saved.'), array('action' => 'index'));
+				$this->Session->setFlash(__('The service has been saved'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		} else {
@@ -92,8 +94,9 @@ class ServicesController extends AppController {
 			throw new NotFoundException(__('Invalid service'));
 		}
 		if ($this->Service->delete()) {
-			$this->flash(__('Service deleted'), array('action' => 'index'));
-		}
+				$this->Session->setFlash(__('Service deleted'));
+				$this->redirect(array('action' => 'index'));
+			}
 		$this->flash(__('Service was not deleted'), array('action' => 'index'));
 		$this->redirect(array('action' => 'index'));
 	}

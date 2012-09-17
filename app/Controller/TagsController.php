@@ -41,7 +41,8 @@ class TagsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Tag->create();
 			if ($this->Tag->save($this->request->data)) {
-				$this->flash(__('Tag saved.'), array('action' => 'index'));
+				$this->Session->setFlash(__('The tag has been saved'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		}
@@ -63,7 +64,8 @@ class TagsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Tag->save($this->request->data)) {
-				$this->flash(__('The tag has been saved.'), array('action' => 'index'));
+				$this->Session->setFlash(__('The tag has been saved'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		} else {
@@ -90,7 +92,8 @@ class TagsController extends AppController {
 			throw new NotFoundException(__('Invalid tag'));
 		}
 		if ($this->Tag->delete()) {
-			$this->flash(__('Tag deleted'), array('action' => 'index'));
+			$this->Session->setFlash(__('Tag deleted'));
+			$this->redirect(array('action' => 'index'));
 		}
 		$this->flash(__('Tag was not deleted'), array('action' => 'index'));
 		$this->redirect(array('action' => 'index'));

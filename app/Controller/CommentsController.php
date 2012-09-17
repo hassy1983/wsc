@@ -41,7 +41,8 @@ class CommentsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Comment->create();
 			if ($this->Comment->save($this->request->data)) {
-				$this->flash(__('Comment saved.'), array('action' => 'index'));
+				$this->Session->setFlash(__('The comment has been saved'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		}
@@ -64,7 +65,8 @@ class CommentsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Comment->save($this->request->data)) {
-				$this->flash(__('The comment has been saved.'), array('action' => 'index'));
+				$this->Session->setFlash(__('The comment has been saved'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		} else {
@@ -92,7 +94,8 @@ class CommentsController extends AppController {
 			throw new NotFoundException(__('Invalid comment'));
 		}
 		if ($this->Comment->delete()) {
-			$this->flash(__('Comment deleted'), array('action' => 'index'));
+			$this->Session->setFlash(__('Comment deleted'));
+			$this->redirect(array('action' => 'index'));
 		}
 		$this->flash(__('Comment was not deleted'), array('action' => 'index'));
 		$this->redirect(array('action' => 'index'));
