@@ -8,6 +8,14 @@ App::uses('AppController', 'Controller');
 class TagsController extends AppController {
 
 /**
+ * Set layout
+ *
+ * @var string
+ */
+	var $layout = 'backend';
+
+
+/**
  * index method
  *
  * @return void

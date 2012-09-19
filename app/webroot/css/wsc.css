@@ -1,0 +1,14 @@
+.thumbnails li {
+    height:80px;
+}
+.thumbnails a {
+    height:80px;
+}
+.thumbnails img {
+    vertical-align:middle;
+    align:center;
+    position:relative;
+}
+.text20 {
+    font-size:140%;
+}

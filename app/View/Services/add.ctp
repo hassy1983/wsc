@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Service'); ?></legend>
 	<?php
+		echo $this->Form->input('category_id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('service_url');
 		echo $this->Form->input('logo_url');

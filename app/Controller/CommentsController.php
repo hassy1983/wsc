@@ -8,6 +8,13 @@ App::uses('AppController', 'Controller');
 class CommentsController extends AppController {
 
 /**
+ * Set layout
+ *
+ * @var string
+ */
+	var $layout = 'backend';
+
+/**
  * index method
  *
  * @return void

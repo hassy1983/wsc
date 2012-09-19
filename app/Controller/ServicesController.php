@@ -8,6 +8,14 @@ App::uses('AppController', 'Controller');
 class ServicesController extends AppController {
 
 /**
+ * Set layout
+ *
+ * @var string
+ */
+	var $layout = 'backend';
+
+
+/**
  * index method
  *
  * @return void
@@ -48,7 +56,8 @@ class ServicesController extends AppController {
 		}
 		$tags = $this->Service->Tag->find('list');
 		$users = $this->Service->User->find('list');
-		$this->set(compact('tags', 'users'));
+		$categories = $this->Service->Category->find('list');
+		$this->set(compact('tags', 'users', 'categories'));
 	}
 
 /**
@@ -74,7 +83,8 @@ class ServicesController extends AppController {
 		}
 		$tags = $this->Service->Tag->find('list');
 		$users = $this->Service->User->find('list');
-		$this->set(compact('tags', 'users'));
+		$categories = $this->Service->Category->find('list');
+		$this->set(compact('tags', 'users', 'categories'));
 	}
 
 /**

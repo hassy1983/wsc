@@ -69,6 +69,10 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
+		if ($path[0] == 'home') {
+    		$this->set('services', ClassRegistry::init('Service')->find('all', array('recursive' => -1)));
+    		$this->set('tags', ClassRegistry::init('Tag')->find('all', array('recursive' => -1)));
+		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
 	}
